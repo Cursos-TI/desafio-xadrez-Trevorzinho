@@ -37,7 +37,7 @@ int main() {
 // Bispo: 5 casas na diagonal superior direita
 // Torre: 5 casas para a direita
 // Rainha: 8 casas para a esquerda
-//
+// Cavalo: 2 pra baixo, 1 pra esquerda
 
     return 0;
 
