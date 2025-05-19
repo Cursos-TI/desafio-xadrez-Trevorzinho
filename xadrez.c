@@ -31,7 +31,7 @@ int main() {
         for (int i = 1; i < 3; i++) {
             printf("O cavalo moveu %d casa(s) para baixo.\n", i);
         }
-        printf("O cavalo moveu pra esquerda.\n", passos);
+        printf("O cavalo moveu pra esquerda.\n");
     }
 
 // Bispo: 5 casas na diagonal superior direita
