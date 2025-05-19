@@ -1,44 +1,55 @@
 #include <stdio.h>
 
-// nivel aventureiro 
+// nivel mestre 
+
+int vertical;
+
+void moveRainha(int casas){
+    if (casas > 0) {
+        printf("A rainha se moveu para a esquerda.\n");
+        moveRainha(casas - 1);
+    }
+}
+
+void moveTorre(int casas){
+    if (casas > 0) {
+        moveTorre(casas - 1);
+        printf("A torre se moveu para a direita.\n");
+    }
+}
+
+
+void moveBispo(int casas){
+    if (casas > 0) {
+        vertical = casas;
+        if (vertical > 0) {
+            printf("O bispo se moveu para direita e ");
+        }
+        printf("para cima.\n");
+        moveBispo(casas - 1);
+    }
+}
+
+void moveCavalo() {
+    for (int cavaloCima = 2, cavaloDireita = 1; cavaloCima >= cavaloDireita; cavaloCima--) {
+        if (cavaloCima == 2) {
+            printf("O cavalo se moveu para cima.\n");
+            continue;
+        }
+        printf("O cavalo se moveu para cima e para a direita.\n");
+    }
+}
+
 
 int main() {
 
-    int i = 1, passos = 1;
-
-    // iniciando o valor de i como 1 para que ele possa mostrar quantas casas percorreu
-    for (int i = 1; i <= 5; i++) {
-        printf("A torre se moveu %d casa(s) para a direita.\n", i);
-    }
-
-    // resetando o valor de i para mostrar a posição novamente
-    i = 1;
-
-    do{
-        printf("A rainha se moveu %d casa(s) para a esquerda.\n", i);
-        i++;
-    } while (i <= 8);
-    
-    i = 1;
-
-    while (i <= 5){
-        printf("O bispo se moveu %d casa(s) para cima e para a direita.\n", i);
-        i++;
-    };
-
-    while (passos--)
-    {
-        for (int i = 1; i < 3; i++) {
-            printf("O cavalo moveu %d casa(s) para baixo.\n", i);
-        }
-        printf("O cavalo moveu pra esquerda.\n");
-    }
-
-// Bispo: 5 casas na diagonal superior direita
-// Torre: 5 casas para a direita
-// Rainha: 8 casas para a esquerda
-// Cavalo: 2 pra baixo, 1 pra esquerda
+    moveRainha(8);
+    printf("\n");
+    moveTorre(5);
+    printf("\n");
+    moveBispo(5);
+    printf("\n");
+    moveCavalo();
 
     return 0;
-
 }
